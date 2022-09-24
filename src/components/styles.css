@@ -1,0 +1,38 @@
+.line-divided {
+    border-right: 1px solid #eee;
+  }
+  
+  form {
+    background-color: #00000054;
+    padding: 50px 60px;
+    border-radius: 14px;
+    box-shadow: 1px 5px 20px 7px #0000007a;
+    width: 50%;
+    margin: 0 auto;
+    
+  }
+  
+  textarea,
+  input {
+
+    background-color: #8eb2c5 !important;
+    color: #221d34 !important;
+  }
+  
+  pre {
+    background-color: #00000054;
+    padding: 50px;
+    border-radius: 14px;
+    box-shadow: 1px 5px 20px 7px #0000007a;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 767px) {
+    .line-divided {
+      border-right: none;
+    }
+  
+    form {
+      width: 100%;
+    }
+  }
