@@ -6,19 +6,15 @@ import "./styles.css";
 const CORRECTIONS = {
   realy: "really",
   wierd: "weird",
-  rar: 'rare',
 };
 
-export const Autocorrector = () => {
+export const AutocorrectTextarea = () => {
   const [newCorrections, setNewCorrections] = useState(
     Object.keys(CORRECTIONS).map((word) => ({
       key: word,
       correction: CORRECTIONS[word],
     }))
   );
-
-  console.log(newCorrections)
-
   const { text, checkTextArea, checkWord } = useCheckWord(newCorrections);
   const [misspelled, setMisspelled] = useState("");
   const [rightWord, setRightWord] = useState("");
@@ -66,43 +62,28 @@ export const Autocorrector = () => {
 
   return (
     <div className="container animate__animated animate__fadeInUp animate__slow">
-      {!addNewWord && (
-        <div className="col-12 animate__animated animate__fadeIn mb-5 add-word-corrector">
-          <h3 className="text-center">
-            You can add new words to the corrector
-          </h3>
-
-          <div className="text-center col-8 offset-2 col-md-6 offset-md-3">
-            <button
-              className="btn btn-primary form-control"
-              onClick={() => setAddNewWord(!addNewWord)}
-            >
-              Add new words
-            </button>
-          </div>
-        </div>
-      )}
-
-      {addNewWord && (
-        <AddWord
-          handleNewCorrections={handleNewCorrections}
-          handlerCancelButton={handlerCancelButton}
-          handlerInputMisspelledChange={handlerInputMisspelledChange}
-          misspelled={misspelled}
-          setRightWord={setRightWord}
-          rightWord={rightWord}
-          keyExist={keyExist}
-        />
-      )}
+      
+      <h2 className="">You can add new words to the autocorrector!</h2>
+      <AddWord
+        handleNewCorrections={handleNewCorrections}
+        handlerCancelButton={handlerCancelButton}
+        handlerInputMisspelledChange={handlerInputMisspelledChange}
+        misspelled={misspelled}
+        setRightWord={setRightWord}
+        rightWord={rightWord}
+        keyExist={keyExist}
+      />
+      
 
       <hr />
 
       <div className="row mt-3">
         <div className="col-12 col-md-6 px-4 line-divided">
           <h4 className="text-center mb-4">
-            Text Area (Check the Autocorrection)
+            Write your text here!
           </h4>
           <textarea
+            data-testid="textarea"
             className="form-control"
             value={text}
             onChange={checkTextArea}

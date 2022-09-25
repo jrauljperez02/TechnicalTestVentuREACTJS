@@ -50,12 +50,6 @@ export const AddWord = ({
 
         <div className="d-flex mt-4">
           <button className="btn btn-primary form-control me-2 btn_add">Add</button>
-          <button
-            className="btn btn-danger form-control btn_cancel"
-            onClick={handlerCancelButton}
-          >
-            Cancel
-          </button>
         </div>
       </form>
     </>
